@@ -1,5 +1,3 @@
-const math = require('./math');
-
 module.exports = function solveEquation(equation) {
   // your implementation
 
