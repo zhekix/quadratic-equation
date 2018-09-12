@@ -4,12 +4,14 @@ module.exports = function solveEquation(equation) {
   let str = equation;
 
   str   = str.replace(/ /g,'');
-  var a = str.split('*x^2')[0];
-  var b = str.split('*x^2')[1].split('*x')[0];
-  var c = str.split('*x^2')[1].split('*x')[1];
-  // var coef    = math.rationalize(equation,{},true).coefficients;
-  // var a       = coef[2], b = coef[1], c = coef[0];
-  var d       = b*b - 4*a*c;
+  var parts = str.split('*x^2');
+  var a = parts[0];
+
+  var divider = '*x';
+  var b = parts[1].split(divider)[0];
+  var c = parts[1].split(divider)[1];
+
+  var d = b*b - 4*a*c;
   var solutions = [];
   solutions.push( Math.round( ( -b + Math.sqrt(d) )/(2*a) ) );
   solutions.push( Math.round( ( -b - Math.sqrt(d) )/(2*a) ) );
